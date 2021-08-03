@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="log_in">Log in</string>
+    <string name="shoe_store_logo">Shoe store logo</string>
+    <string name="email_hint">jhon_smith@email.com</string>
+    <string name="welcome_to_hidek_shoes_store">Welcome to hidek shoes store</string>
+    <string name="don_t_miss_the_deals">Don\'t miss the deals!</string>
+    <string name="read_instructions">Read instructions</string>
+    <!-- Strings related to login -->
+    <string name="instructions">Instructions</string>
+    <string name="start_shopping">Start shopping</string>
+    <string name="instructions_detailed">Here are the instructions</string>
+    <string name="shoe_image_for_reference">Shoe image for reference</string>
+    <string name="available_sizes">Available sizes:</string>
+    <string name="company">Company:</string>
+    <string name="description">Description:</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

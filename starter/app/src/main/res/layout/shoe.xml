@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_layout"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="16dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="170dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/shoe_image_for_reference"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/shoe_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_company_txt"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Shoe name" />
+
+    <TextView
+        android:id="@+id/shoe_sizes_txt"
+        style="@style/shoe_field_name"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:text="@string/available_sizes"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_sizes_textview"
+        app:layout_constraintStart_toStartOf="@+id/shoe_company_textview"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_company_textview" />
+
+    <TextView
+        android:id="@+id/shoe_sizes_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_description_txt"
+        app:layout_constraintStart_toStartOf="@+id/shoe_sizes_txt"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_sizes_txt"
+        tools:text="9 10 11 11.5 12" />
+
+    <TextView
+        android:id="@+id/shoe_company_txt"
+        style="@style/shoe_field_name"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:text="@string/company"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_company_textview"
+        app:layout_constraintStart_toStartOf="@+id/shoe_name_textview"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_name_textview" />
+
+    <TextView
+        android:id="@+id/shoe_company_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_sizes_txt"
+        app:layout_constraintStart_toStartOf="@+id/shoe_company_txt"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_company_txt"
+        tools:text="Shoe company name" />
+
+    <TextView
+        android:id="@+id/shoe_description_txt"
+        style="@style/shoe_field_name"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:text="@string/description"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_description_textview"
+        app:layout_constraintStart_toStartOf="@+id/shoe_sizes_textview"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_sizes_textview" />
+
+    <TextView
+        android:id="@+id/shoe_description_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/shoe_description_txt"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_description_txt"
+        tools:text="shoe description ..." />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
