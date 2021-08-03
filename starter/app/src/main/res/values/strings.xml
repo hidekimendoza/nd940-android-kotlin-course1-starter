@@ -16,5 +16,6 @@
     <string name="available_sizes">Available sizes:</string>
     <string name="company">Company:</string>
     <string name="description">Description:</string>
+    <string name="shoe_name">Shoe name:</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

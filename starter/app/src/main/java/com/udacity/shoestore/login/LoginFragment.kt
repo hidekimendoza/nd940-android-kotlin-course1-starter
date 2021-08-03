@@ -21,7 +21,7 @@ class LoginFragment : Fragment() {
         val binding: LoginFragmentBinding =
             DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
 
-        binding.loginButton.setOnClickListener{
+        binding.loginButton.setOnClickListener {
             findNavController().navigate(R.id.action_login_welcomeScreen)
         }
 
