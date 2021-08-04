@@ -24,16 +24,41 @@
         tools:layout="@layout/fragment_welcome_screen" >
         <action
             android:id="@+id/action_welcomeScreen_to_instructionsFragment"
-            app:destination="@id/instructionsFragment" />
+            app:destination="@id/instructionsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/instructionsFragment"
         android:name="com.udacity.shoestore.instructions.InstructionsFragment"
         tools:layout="@layout/fragment_instructions"
-        android:label="InstructionsFragment" />
+        android:label="InstructionsFragment" >
+        <action
+            android:id="@+id/action_instructionsFragment_to_shoeSelectionFragment"
+            app:destination="@id/shoeSelectionFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/shoeSelectionFragment"
         android:name="com.udacity.shoestore.shoe_selection.ShoeSelectionFragment"
         android:label="ShoeSelectionFragment"
-        tools:layout="@layout/fragment_shoe_selection"/>
+        tools:layout="@layout/fragment_shoe_selection">
+        <action
+            android:id="@+id/action_shoeSelectionFragment_to_shoeFragment"
+            app:destination="@id/shoeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeFragment"
+        android:name="com.udacity.shoestore.ShoeFragment"
+        android:label="ShoeFragment"
+        tools:layout="@layout/shoe"/>
 </navigation>

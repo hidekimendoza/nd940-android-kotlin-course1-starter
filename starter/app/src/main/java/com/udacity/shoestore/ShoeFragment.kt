@@ -1,4 +1,4 @@
-package com.udacity.shoestore.shoe_selection
+package com.udacity.shoestore
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.udacity.shoestore.R
-import com.udacity.shoestore.databinding.FragmentShoeSelectionBinding
+import com.udacity.shoestore.databinding.ShoeBinding
 
 
-class ShoeSelectionFragment : Fragment() {
+class ShoeFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding: FragmentShoeSelectionBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_selection, container, false)
+        val binding: ShoeBinding =
+            DataBindingUtil.inflate(inflater, R.layout.shoe, container, false)
         return binding.root
     }
 }
