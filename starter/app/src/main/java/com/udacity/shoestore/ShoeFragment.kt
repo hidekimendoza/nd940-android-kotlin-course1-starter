@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.udacity.shoestore.databinding.ShoeBinding
+import com.udacity.shoestore.databinding.ShoeDescriptionFragmentBinding
 
 
 class ShoeFragment : Fragment() {
@@ -16,8 +16,8 @@ class ShoeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding: ShoeBinding =
-            DataBindingUtil.inflate(inflater, R.layout.shoe, container, false)
+        val binding: ShoeDescriptionFragmentBinding =
+            DataBindingUtil.inflate(inflater, R.layout.shoe_description_fragment, container, false)
         return binding.root
     }
 }

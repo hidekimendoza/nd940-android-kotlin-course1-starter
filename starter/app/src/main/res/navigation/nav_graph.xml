@@ -60,5 +60,5 @@
         android:id="@+id/shoeFragment"
         android:name="com.udacity.shoestore.ShoeFragment"
         android:label="ShoeFragment"
-        tools:layout="@layout/shoe"/>
+        tools:layout="@layout/shoe_description_fragment"/>
 </navigation>
