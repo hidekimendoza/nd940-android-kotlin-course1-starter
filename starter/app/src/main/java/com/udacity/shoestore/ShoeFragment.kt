@@ -1,14 +1,15 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.udacity.shoestore.databinding.ShoeDescriptionFragmentBinding
-import timber.log.Timber
 
 
 class ShoeFragment : Fragment() {
@@ -24,7 +25,8 @@ class ShoeFragment : Fragment() {
 
         val args by navArgs<ShoeFragmentArgs>()
 
-        val toast:Toast = Toast.makeText(activity, "Selected ${args.shoeName.toString()}", Toast.LENGTH_SHORT)
+        val toast: Toast =
+            Toast.makeText(activity, "Selected ${args.shoeName.toString()}", Toast.LENGTH_SHORT)
         toast.show()
 
         // Set cancel button action - pop

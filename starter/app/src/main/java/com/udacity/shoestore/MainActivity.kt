@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.menu_logout -> {
                 Timber.i("onOptionsItemSelected: Logout selected")
                 true
