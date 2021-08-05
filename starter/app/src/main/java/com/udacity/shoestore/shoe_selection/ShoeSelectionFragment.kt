@@ -20,10 +20,11 @@ class ShoeSelectionFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentShoeSelectionBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_selection, container, false)
+        setHasOptionsMenu(true)
 
         // Enable FAB action
         binding.fab.setOnClickListener{
-            findNavController().navigate(R.id.action_shoeSelectionFragment_to_shoeFragment)
+            findNavController().navigate(ShoeSelectionFragmentDirections.actionShoeSelectionFragmentToShoeFragment(null))
         }
         binding.shoeListview.removeAllViews()
 
@@ -31,6 +32,9 @@ class ShoeSelectionFragment : Fragment() {
         shoe_binding.shoeItemImageview.setImageResource(R.drawable.shoe_2)
         shoe_binding.showItemName.text = "Shoe 1"
         binding.shoeListview.addView(shoe_binding.root)
+        shoe_binding.root.setOnClickListener{
+            findNavController().navigate(ShoeSelectionFragmentDirections.actionShoeSelectionFragmentToShoeFragment(shoe_binding.showItemName.text.toString()))
+        }
         return binding.root
     }
 }
