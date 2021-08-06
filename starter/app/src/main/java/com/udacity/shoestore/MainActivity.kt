@@ -17,7 +17,7 @@ const val KEY_LOGIN_PREVIOUSLY_COMPLETED = "is_logged_in"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-    private var skipLogin:Boolean? = false
+    private var skipLogin: Boolean? = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +41,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.menu_logout -> {
                 Timber.i("onOptionsItemSelected: Logout selected")
+                LoginViewModel.LOGIN_COMPLETED = false
+                val graph = navController.graph
+                graph.startDestination = R.id.login_fragment
+                navController.graph = graph
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -60,7 +64,8 @@ class MainActivity : AppCompatActivity() {
     private fun setupNavigation() {
         navController = findNavController(R.id.nav_host_fragment)
         val graph = navController.graph
-        graph.startDestination = if (LoginViewModel.LOGIN_COMPLETED) R.id.shoeSelectionFragment else R.id.login_fragment
+        graph.startDestination =
+            if (LoginViewModel.LOGIN_COMPLETED) R.id.shoeSelectionFragment else R.id.login_fragment
         navController.graph = graph
     }
 }
