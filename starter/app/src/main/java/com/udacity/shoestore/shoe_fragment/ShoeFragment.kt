@@ -35,6 +35,8 @@ class ShoeFragment : Fragment() {
         viewModelFactory = ShoeViewModelFactory(args.shoeName)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ShoeViewModel::class.java)
 
+        binding.shoe= viewModel.shoe
+
         val toast: Toast =
             Toast.makeText(activity, "Selected ${args.shoeName.toString()}", Toast.LENGTH_SHORT)
         toast.show()
@@ -43,15 +45,15 @@ class ShoeFragment : Fragment() {
         binding.shoeCancelButton.setOnClickListener {
             findNavController().navigate(ShoeFragmentDirections.actionShoeFragmentToShoeSelectionFragment())
         }
+        binding.shoeSaveButton.setOnClickListener{
+            viewModel.updateShoeInformation()
+            findNavController().navigate(ShoeFragmentDirections.actionShoeFragmentToShoeSelectionFragment())
+        }
         populate_view(viewModel.shoe)
         return binding.root
     }
 
     private fun populate_view(shoe: Shoe) {
-        binding.shoeCompanyEditext.setText(shoe.company)
-        binding.shoeNameEditext.setText(shoe.name)
-        binding.shoeDescriptionEditext.setText(shoe.description)
-        binding.shoeSizesEdittext.setText(shoe.size.toString())
         if (shoe.images.isNotEmpty()) {
             binding.shoeImageView.setImageURI(Uri.parse(shoe.images[0]))
         }
