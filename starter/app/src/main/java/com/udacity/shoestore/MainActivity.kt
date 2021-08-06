@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                 Timber.i("onOptionsItemSelected: Logout selected")
                 LoginViewModel.LOGIN_COMPLETED = false
                 val graph = navController.graph
-                graph.startDestination = R.id.login_fragment
+                graph.startDestination = R.id.loginFragment
                 navController.graph = graph
                 true
             }
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment)
         val graph = navController.graph
         graph.startDestination =
-            if (LoginViewModel.LOGIN_COMPLETED) R.id.shoeSelectionFragment else R.id.login_fragment
+            if (LoginViewModel.LOGIN_COMPLETED) R.id.shoeSelectionFragment else R.id.loginFragment
         navController.graph = graph
     }
 }
