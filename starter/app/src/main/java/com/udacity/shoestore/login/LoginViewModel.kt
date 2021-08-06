@@ -14,9 +14,16 @@ class LoginViewModel : ViewModel() {
 
     fun loginAuthentication(prompt_user: String, prompt_pwd: String): Boolean {
         if (prompt_user in validUsers && prompt_pwd == validPassword) {
+            LOGIN_COMPLETED = true
             return true
         }
         return false
     }
+    fun forceAuthentication(){
+        LOGIN_COMPLETED = true
+    }
 
+    companion object {
+        var LOGIN_COMPLETED:Boolean=false
+    }
 }

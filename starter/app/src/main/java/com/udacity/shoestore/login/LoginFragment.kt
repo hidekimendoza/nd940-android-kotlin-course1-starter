@@ -33,6 +33,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.signupButton.setOnClickListener {
+            viewModel.forceAuthentication()
             findNavController().navigate(R.id.action_login_welcomeScreen)
         }
         setHasOptionsMenu(true)
