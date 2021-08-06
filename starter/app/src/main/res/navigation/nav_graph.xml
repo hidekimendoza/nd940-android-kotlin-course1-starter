@@ -58,7 +58,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoeFragment"
-        android:name="com.udacity.shoestore.ShoeFragment"
+        android:name="com.udacity.shoestore.shoe_fragment.ShoeFragment"
         android:label="ShoeFragment"
         tools:layout="@layout/shoe_description_fragment">
         <action

@@ -13,7 +13,6 @@ import com.udacity.shoestore.databinding.FragmentInstructionsBinding
 
 class InstructionsFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,7 +23,7 @@ class InstructionsFragment : Fragment() {
             R.layout.fragment_instructions, container, false
         )
         binding.startShoppingButton.setOnClickListener {
-            findNavController().navigate(R.id.action_instructionsFragment_to_shoeSelectionFragment)
+            findNavController().navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoeSelectionFragment())
         }
         return binding.root
     }
