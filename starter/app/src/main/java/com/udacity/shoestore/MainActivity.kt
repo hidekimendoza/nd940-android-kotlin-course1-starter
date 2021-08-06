@@ -1,9 +1,6 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -34,25 +31,6 @@ class MainActivity : AppCompatActivity() {
         Timber.plant(Timber.DebugTree())
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_logout -> {
-                Timber.i("onOptionsItemSelected: Logout selected")
-                LoginViewModel.LOGIN_COMPLETED = false
-                val graph = navController.graph
-                graph.startDestination = R.id.loginFragment
-                navController.graph = graph
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

@@ -4,12 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.udacity.shoestore.shoe_fragment.SizeConverter"/>
+
+        <import type="com.udacity.shoestore.shoe_fragment.SizeConverter" />
+
         <variable
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+    <!--    Using constrain layout to organize the elements of the view, nested linear layout
+     could be used too, but decided to use constrain layout to allow having elements at the
+     bottom .-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
@@ -46,9 +51,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:text="@={shoe.name}"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="@={shoe.name}"
             app:layout_constraintBottom_toTopOf="@+id/shoe_company_txt"
             app:layout_constraintStart_toStartOf="@+id/shoe_company_txt"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_txt"
@@ -69,11 +74,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:text="@={shoe.company}"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/shoe_sizes_txt"
             app:layout_constraintStart_toStartOf="@+id/shoe_sizes_txt"
             app:layout_constraintTop_toBottomOf="@+id/shoe_company_txt"
-            android:text="@={shoe.company}"
             tools:text="Shoe company name" />
 
         <TextView
@@ -115,13 +120,13 @@
             android:layout_height="0dp"
             android:gravity="start"
             android:inputType="text"
+            android:text="@={shoe.description}"
             android:textAlignment="gravity"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/shoe_cancel_button"
             app:layout_constraintTop_toBottomOf="@+id/shoe_description_txt"
             tools:layout_editor_absoluteX="33dp"
-            tools:text="shoe description ..."
-            android:text="@={shoe.description}"/>
+            tools:text="shoe description ..." />
 
         <Button
             android:id="@+id/shoe_save_button"

@@ -2,7 +2,6 @@ package com.udacity.shoestore.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -36,14 +35,7 @@ class LoginFragment : Fragment() {
             viewModel.forceAuthentication()
             findNavController().navigate(R.id.action_login_welcomeScreen)
         }
-        setHasOptionsMenu(true)
-
         return binding.root
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
-        menu.findItem(R.id.menu_logout)?.isVisible = false
     }
 
     private fun verify_login(): Boolean {

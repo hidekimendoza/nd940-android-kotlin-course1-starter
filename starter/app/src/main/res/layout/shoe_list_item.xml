@@ -2,6 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--    Using linear layout since only two element are added with horizontal orientation
+    and alignment -->
     <LinearLayout
         android:id="@+id/shoe_item_layout"
         android:layout_width="match_parent"

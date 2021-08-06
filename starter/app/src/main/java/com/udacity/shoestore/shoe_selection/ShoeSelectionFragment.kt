@@ -2,9 +2,7 @@ package com.udacity.shoestore.shoe_selection
 
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -12,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeSelectionBinding
 import com.udacity.shoestore.databinding.ShoeListItemBinding
+import com.udacity.shoestore.login.LoginViewModel
 import com.udacity.shoestore.models.Shoe
+import timber.log.Timber
 
 
 class ShoeSelectionFragment : Fragment() {
@@ -37,6 +37,7 @@ class ShoeSelectionFragment : Fragment() {
             )
         }
         binding.shoeListview.removeAllViews()
+        setHasOptionsMenu(true)
         for (shoe: Shoe in ShoeSelectionViewModel.LIST_OF_SHOES) {
             val shoe_binding = DataBindingUtil.inflate<ShoeListItemBinding>(
                 layoutInflater,
@@ -62,5 +63,25 @@ class ShoeSelectionFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu, menu)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_logout -> {
+                Timber.i("onOptionsItemSelected: Logout selected")
+                LoginViewModel.LOGIN_COMPLETED = false
+                val graph = findNavController().graph
+                graph.startDestination = R.id.loginFragment
+                findNavController().graph = graph
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
