@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -35,17 +36,28 @@ class ShoeFragment : Fragment() {
         viewModelFactory = ShoeViewModelFactory(args.shoeName)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ShoeViewModel::class.java)
 
-        binding.shoe= viewModel.shoe
+        binding.shoe = viewModel.shoe
 
-        val toast: Toast =
-            Toast.makeText(activity, "Selected ${args.shoeName.toString()}", Toast.LENGTH_SHORT)
-        toast.show()
+        // Run toast only when viewModel is initialized
+        viewModel.eventShoeSelected.observe(this, Observer { hasShoeBeenSelected ->
+            if (hasShoeBeenSelected) {
+                val toast: Toast =
+                    Toast.makeText(
+                        activity,
+                        "Selected ${args.shoeName.toString()}",
+                        Toast.LENGTH_SHORT
+                    )
+                toast.show()
+                viewModel.onEventShoeSelectedComplete()
+            }
+        })
+
 
         // Set cancel button action - pop
         binding.shoeCancelButton.setOnClickListener {
             findNavController().navigate(ShoeFragmentDirections.actionShoeFragmentToShoeSelectionFragment())
         }
-        binding.shoeSaveButton.setOnClickListener{
+        binding.shoeSaveButton.setOnClickListener {
             viewModel.updateShoeInformation()
             findNavController().navigate(ShoeFragmentDirections.actionShoeFragmentToShoeSelectionFragment())
         }
@@ -58,6 +70,5 @@ class ShoeFragment : Fragment() {
             binding.shoeImageView.setImageURI(Uri.parse(shoe.images[0]))
         }
     }
-
 
 }
